@@ -18,6 +18,7 @@ add_library(bitglide_core
   src/log.cpp
   src/url.cpp
   src/playlist.cpp
+  src/bandwidth_estimator.cpp
 )
 
 target_include_directories(bitglide_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
