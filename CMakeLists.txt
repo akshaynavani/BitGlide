@@ -22,6 +22,7 @@ add_library(bitglide_core
   src/abr.cpp
   src/http_client.cpp
   src/segment_buffer.cpp
+  src/player.cpp
 )
 
 target_include_directories(bitglide_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
