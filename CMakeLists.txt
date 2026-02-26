@@ -24,6 +24,7 @@ add_library(bitglide_core
   src/segment_buffer.cpp
   src/player.cpp
   src/config.cpp
+  src/prefetcher.cpp
 )
 
 target_include_directories(bitglide_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
