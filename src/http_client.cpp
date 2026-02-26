@@ -8,11 +8,14 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+#include <algorithm>
 #include <cctype>
 #include <cerrno>
 #include <chrono>
+#include <cstdlib>
 #include <cstring>
 #include <fstream>
+#include <iterator>
 
 #include "bitglide/log.h"
 #include "bitglide/url.h"
