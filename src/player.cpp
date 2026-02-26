@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <chrono>
+#include <thread>
 
 #include "bitglide/log.h"
 
@@ -78,7 +79,6 @@ void Player::record(const std::string& type, int variant, double value) {
 bool Player::wait_for_level(double target_s) {
     while (!stop_) {
         if (buffer_.level_s() >= target_s || buffer_.finished() || buffer_.closed()) return true;
-        // pop_next is not used here; just wait for pushes or poll.
         std::this_thread::sleep_for(std::chrono::milliseconds(cfg_.tick_ms));
     }
     return false;
