@@ -1,5 +1,6 @@
 #include <atomic>
 #include <csignal>
+#include <signal.h>
 #include <cstdlib>
 #include <iostream>
 #include <stdexcept>
