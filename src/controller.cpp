@@ -94,9 +94,14 @@ int Controller::decide(uint64_t sequence) {
     ctx.buffer_level_s = player_ ? player_->buffer_ahead_s() : 0.0;
     ctx.max_buffer_s = cfg_.max_buffer_s;
     ctx.current_index = current_;
-    const auto& ref = media_.count(std::max(current_, 0)) ? media_.at(std::max(current_, 0)) : media_.begin()->second;
-    ctx.segment_duration_s = ref.target_duration_s > 0 ? ref.target_duration_s : 6.0;
-    (void)sequence;
+    ctx.segment_duration_s = 6.0;
+    if (auto it = media_.find(std::max(current_, 0)); it != media_.end()) {
+        const MediaPlaylist& pl = it->second;
+        if (sequence >= pl.media_sequence && sequence - pl.media_sequence < pl.segments.size())
+            ctx.segment_duration_s = pl.segments[static_cast<size_t>(sequence - pl.media_sequence)].duration_s;
+        else if (pl.target_duration_s > 0)
+            ctx.segment_duration_s = pl.target_duration_s;
+    }
 
     int choice = std::clamp(abr_->choose(ctx), 0, static_cast<int>(variants_.size()) - 1);
     if (choice != current_) {
