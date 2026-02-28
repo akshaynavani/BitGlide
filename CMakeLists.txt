@@ -37,3 +37,9 @@ if(BITGLIDE_SANITIZE)
   target_compile_options(bitglide_core PUBLIC -fsanitize=address,undefined -fno-omit-frame-pointer)
   target_link_options(bitglide_core PUBLIC -fsanitize=address,undefined)
 endif()
+
+add_executable(bitglide src/main.cpp)
+target_link_libraries(bitglide PRIVATE bitglide_core)
+target_compile_options(bitglide PRIVATE -Wall -Wextra -Wpedantic)
+
+install(TARGETS bitglide RUNTIME DESTINATION bin)
