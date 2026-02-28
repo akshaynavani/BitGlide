@@ -25,6 +25,7 @@ add_library(bitglide_core
   src/player.cpp
   src/config.cpp
   src/prefetcher.cpp
+  src/metrics.cpp
 )
 
 target_include_directories(bitglide_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
