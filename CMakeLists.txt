@@ -43,3 +43,18 @@ target_link_libraries(bitglide PRIVATE bitglide_core)
 target_compile_options(bitglide PRIVATE -Wall -Wextra -Wpedantic)
 
 install(TARGETS bitglide RUNTIME DESTINATION bin)
+
+if(BITGLIDE_BUILD_TESTS)
+  enable_testing()
+  add_executable(bitglide_tests
+    tests/test_main.cpp
+    tests/test_url.cpp
+    tests/test_playlist.cpp
+    tests/test_estimator.cpp
+    tests/test_abr.cpp
+    tests/test_segment_buffer.cpp
+    tests/test_config.cpp
+  )
+  target_link_libraries(bitglide_tests PRIVATE bitglide_core)
+  add_test(NAME bitglide_unit_tests COMMAND bitglide_tests)
+endif()
