@@ -1,0 +1,11 @@
+{
+  "name": "step_down",
+  "description": "Fast link collapses mid-stream then recovers; tests down-switch speed and abandonment.",
+  "latency_ms": 30,
+  "steps": [
+    {"at": 0, "kbps": 8000},
+    {"at": 20, "kbps": 900},
+    {"at": 40, "kbps": 6000}
+  ],
+  "expect": {"max_stalls": 1, "max_stall_time_s": 6.0, "min_switches": 2, "max_failures": 0}
+}

@@ -1,0 +1,9 @@
+{
+  "name": "flaky",
+  "description": "Healthy bandwidth but 8% of segment requests fail with 503; exercises retries.",
+  "latency_ms": 30,
+  "error_rate": 0.08,
+  "seed": 42,
+  "steps": [{"at": 0, "kbps": 6000}],
+  "expect": {"max_stalls": 2, "completes": true}
+}

@@ -1,0 +1,7 @@
+{
+  "name": "constrained",
+  "description": "Mobile-like link that only sustains the lowest rungs.",
+  "latency_ms": 80,
+  "steps": [{"at": 0, "kbps": 1000}],
+  "expect": {"max_stalls": 1, "max_avg_bitrate_kbps": 1300, "max_failures": 0}
+}

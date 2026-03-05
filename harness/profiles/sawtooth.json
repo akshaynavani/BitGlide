@@ -1,0 +1,12 @@
+{
+  "name": "sawtooth",
+  "description": "Bandwidth oscillates every 8 s; checks hysteresis keeps switches bounded.",
+  "latency_ms": 40,
+  "steps": [
+    {"at": 0, "kbps": 6000}, {"at": 8, "kbps": 2000},
+    {"at": 16, "kbps": 6000}, {"at": 24, "kbps": 2000},
+    {"at": 32, "kbps": 6000}, {"at": 40, "kbps": 2000},
+    {"at": 48, "kbps": 6000}
+  ],
+  "expect": {"max_stalls": 1, "max_switches": 12, "max_failures": 0}
+}

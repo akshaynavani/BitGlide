@@ -1,0 +1,7 @@
+{
+  "name": "stable_high",
+  "description": "Plenty of headroom: should climb to the top rendition with no stalls.",
+  "latency_ms": 20,
+  "steps": [{"at": 0, "kbps": 12000}],
+  "expect": {"max_stalls": 0, "min_avg_bitrate_kbps": 2500, "max_failures": 0}
+}
